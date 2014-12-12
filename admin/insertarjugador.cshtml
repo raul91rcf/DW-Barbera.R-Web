@@ -1,0 +1,74 @@
+﻿@{
+    var id = Request.QueryString["id"];
+    var nombre = Request.QueryString["nombre"];
+    var apellidos = Request.QueryString["apellidos"];
+    var dorsal = Request.QueryString["dorsal"];
+    var posicion = Request.QueryString["posicion"];
+
+    var connexion = Database.Open("jugadores");
+
+    /*if(id =="new")
+    {
+		id = connexion.GetLastInsertid().ToString();
+	}*/
+    if(id !=null)
+    {
+    var peticion = connexion.Query ("INSERT INTO plantilla (id,nombre,apellidos,dorsal,posicion)"+ 
+    "VALUES ('"+id+"','"+nombre+"','"+apellidos+"','"+dorsal+"','"+posicion+"')");
+    }
+}
+
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title></title>
+         <link rel="stylesheet" href="admin.css">
+    </head>
+    <body>
+        <div id="contenedor">
+            <div id="menu">
+                <ul>
+                    <li><a href="insertarjugador">Insertar un nuevo jugador</a></li>
+                    <li><a href="actualizardatos">Actualizar datos</a></li>
+                    <li><a href="eliminarjugador">Eliminar jugador</a></li>
+                </ul>
+            </div>
+            <div id="contenido">
+                <h1>Formulario para insertar jugadores</h1>
+                <form method="GET" action="">
+                    <table>
+                        <tr>
+                            <td>Id</td><td><input type="text" name="id"></td>
+                        </tr>
+                        <tr>
+                            <td>Nombre</td><td><input type="text" name="nombre"></td>
+                        </tr>
+                        <tr>
+                            <td>Apellidos</td><td> <input type="text" name="apellidos"></td>
+                        </tr>
+                        <tr>
+                            <td>Dorsal</td><td> <input type="text" name="dorsal"></td>
+                        </tr>
+                        <tr>
+                            <td>Posición</td><td><input type="text" name="posicion"></td>
+                        </tr>
+                        <tr>
+                            <td></td><td><input type="submit"></td>
+                        </tr>
+                    </table>
+                    @if(nombre!=null && apellidos!=null && dorsal !=null && posicion !=null  )
+                    {
+                       <p>Has introducido un jugador con los siguientes datos:</p>
+                       <p> <strong>Nombre:</strong>@nombre</p>    
+                       <p> <strong>Apellidos:</strong>@apellidos</p>  
+                       <p> <strong>Dorsal:</strong>@dorsal</p> 
+                       <p> <strong>Posicion:</strong>@posicion</p>                                                                                                                                                                                    
+
+                    }
+                  </form>
+            </div>
+        </div>
+    </body>
+</html>

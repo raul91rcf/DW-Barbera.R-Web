@@ -1,0 +1,57 @@
+﻿@{
+    var nombre = Request.QueryString["nombre"];
+    var dorsal = Request.QueryString["dorsal"];
+    
+
+    var connexion = Database.Open("jugadores");
+
+   
+    if(nombre !=null && dorsal !=null)
+    {
+       var peticion = connexion.Query ("DELETE FROM plantilla WHERE nombre='"+nombre+"' AND dorsal='"+dorsal+"'");
+       // connexion.Execute(peticion,nombre,dorsal);
+    }
+}
+
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title></title>
+         <link rel="stylesheet" href="admin.css">
+    </head>
+    <body>
+        <div id="contenedor">
+            <div id="menu">
+                <ul>
+                     <li><a href="insertarjugador">Insertar un nuevo jugador</a></li>
+                     <li><a href="actualizardatos">Actualizar datos</a></li>
+                     <li><a href="eliminarjugador">Eliminar jugador</a></li>
+                </ul>
+            </div>
+            <div id="contenido">
+                <h1>Formulario para eliminar jugadores</h1>
+                <form method="GET" action="">
+                    <table>
+                        <tr>
+                            <td>Nombre</td><td><input type="text" name="nombre"></td>
+                        </tr>
+                        <tr>
+                            <td>Dorsal</td><td> <input type="text" name="dorsal"></td>
+                        </tr>
+                         <tr>
+                            <td></td><td><input type="submit"></td>
+                        </tr>
+                    </table>
+                    @if(nombre!=null && dorsal !=null )
+                    {
+                       <p>Has eliminado a un jugador con los siguientes datos:</p>
+                       <p> <strong>Nombre:</strong>@nombre</p>    
+                       <p> <strong>Dorsal:</strong>@dorsal</p> 
+                    }
+                  </form>
+            </div>
+        </div>
+    </body>
+</html>

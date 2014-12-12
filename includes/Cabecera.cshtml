@@ -1,0 +1,89 @@
+﻿@{
+    var titulo="ALGEMESÍ CF";
+    var subtitulo="Somos lo que luchamos ";
+    var subtitulo2="DESDE 1945 ";
+
+    String mes="";
+
+    switch(DateTime.Now.Month)
+    {
+        case 1:
+        mes= "Enero";
+        break;
+        case 2:
+        mes= "Febrero";
+        break;
+        case 3:
+        mes= "Marzo";
+        break;
+        case 4:
+        mes= "Abril";
+        break;
+        case 5:
+        mes= "Mayo";
+        break;
+        case 6:
+        mes= "Junio";
+        break;
+        case 7:
+        mes= "Julio";
+        break;
+        case 8:
+        mes= "Agosto";
+        break;
+        case 9:
+        mes= "Septiembre";
+        break;
+        case 10:
+        mes= "Octubre";
+        break;
+        case 11:
+        mes= "Noviembre";
+        break;
+        case 12:
+        mes= "Diciembre";
+        break;
+    }
+ }
+
+<header>
+    <link rel="stylesheet" href="estilos.css">
+    <div id="cabecera">
+           <div id="titulo">
+             <h1>@titulo</h1>
+                  <div id="twitter">
+                        <p>@Twitter.FollowButton(userName: "algemesicf", showCount: true, largeButton: false, language: "es")</p>
+                 </div>
+                 <div id="facebook">
+                    <p><iframe src="//www.facebook.com/plugins/like.php?href=https%3A%2F%2Fwww.facebook.com%2Fpages%2FAlgemesi-CF%2F123345107875105%3Fref%3Dhl&amp;width&amp;layout=button_count&amp;action=like&amp;show_faces=true&amp;share=true&amp;height=21" style="border:none; overflow:hidden; height:21px;" ></iframe></p>
+                 </div>
+          </div> 
+    </div>
+    <div id="subcabecera">
+            <div id="escudo">
+                <img src="ima/EscudoAlgemesisinfondo.png" alt="escudo del Algemesí CF">
+            </div>
+
+              <div id="fecha">
+                    <p><strong></trong>@DateTime.Now.Day de @mes  de @DateTime.Now.Year</strong></p>
+             </div>
+
+            <div id="textosubcabecera">
+                <p>@subtitulo</p>
+                <p>@subtitulo2</p>
+            </div>
+    </div>
+         
+         <div id="menu">
+         <nav>
+             <ul>
+                <li><a href="Default">Inicio</a></li>
+                <li><a href="Jugadores">Jugadores</a></li>
+                <li><a href="estadisticastotales">Estadisticas Totales</a></li>
+                <li><a href="estacriterio">Según criterio</a></li>
+                <li><a href="Login">Admin</a></li>
+            </ul>
+         </nav>
+         </div>
+               
+</header>

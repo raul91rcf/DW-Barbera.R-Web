@@ -1,0 +1,92 @@
+﻿@{
+    var nombre = Request["nombre"];
+    var dorsal = Request["dorsal"];
+    var jugados = Request["jugados"];
+    var titular = Request["titular"];
+    var minutos = Request["minutos"];
+    var amarillas = Request["amarillas"];
+    var rojas = Request["rojas"];
+    var goles = Request["goles"];
+    var asistencias = Request["asistencias"];
+
+    var connexion = Database.Open("jugadores");
+
+     if(nombre !=null && dorsal !=null)
+     {
+      var peticion = ("UPDATE plantilla SET partidosjugados=partidosjugados+@0, titular=titular+@1, minutos=minutos+@2,amarillas=amarillas+@3,rojas=rojas+@4,goles=goles+@5,asistencias=asistencias+@6 WHERE nombre=@7 AND dorsal=@8  ");  
+       
+  
+			
+	   connexion.Execute(peticion,jugados,titular,minutos,amarillas,rojas,goles,asistencias,nombre,dorsal);
+    }
+    
+ }
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title></title>
+         <link rel="stylesheet" href="admin.css">
+    </head>
+    <body>
+        <div id="contenedor">
+            <div id="menu">
+                <ul>
+                    <li><a href="insertarjugador">Insertar un nuevo jugador</a></li>
+                    <li><a href="actualizardatos">Actualizar datos</a></li>
+                    <li><a href="eliminarjugador">Eliminar jugador</a></li>
+                </ul>
+            </div>
+            <div id="contenido">
+                <h1>Formulario para actualizar datos de partidos</h1>
+                <form method="GET" action="">
+                    <table>
+                        <tr>
+                            <td>Nombre</td><td><input type="text" name="nombre"></td>
+                        </tr>
+                        <tr>
+                            <td>Dorsal</td><td><input type="text" name="dorsal"></td>
+                        </tr>
+                        <tr>
+                            <td>Partidos Jugados</td><td> <input type="text" name="jugados"></td>
+                        </tr>
+                        <tr>
+                            <td>Titular</td><td> <input type="text" name="titular"></td>
+                        </tr>
+                        <tr>
+                            <td>Minutos</td><td><input type="text" name="minutos"></td>
+                        </tr>
+                        <tr>
+                            <td>Amarillas</td><td><input type="text" name="amarillas"></td>
+                        </tr>
+                        <tr>
+                            <td>Rojas</td><td><input type="text" name="rojas"></td>
+                        </tr>
+                        <tr>
+                            <td>Goles</td><td><input type="text" name="goles"></td>
+                        </tr>
+                        <tr>
+                            <td>Asistencias</td><td><input type="text" name="asistencias"></td>
+                        </tr>
+                        <tr>
+                            <td></td><td><input type="submit"></td>
+                        </tr>
+                    </table>
+                    @if(nombre!=null && dorsal!=null)
+                    {
+                       <p>Has actualizado los siguientes datos:</p>
+                       <p> <strong>Partidos jugados:</strong>@jugados</p>    
+                       <p> <strong>Titular:</strong>@titular</p>  
+                       <p> <strong>Minutos:</strong>@dorsal</p> 
+                       <p> <strong>Amarillas:</strong>@amarillas</p>
+                       <p> <strong>Rojas:</strong>@rojas</p> 
+                       <p> <strong>Goles:</strong>@goles</p> 
+                       <p> <strong>Asistencias:</strong>@asistencias</p>                                                                                                                                                                                                                                                                                                                          
+
+                    }
+                  </form>
+            </div>
+        </div>
+    </body>
+</html>

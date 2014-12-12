@@ -1,0 +1,17 @@
+﻿@{
+                  
+                  var connexion = Database.Open("jugadores");
+                  var peticion3 = connexion.Query("SELECT TOP 5 nombre,rojas FROM plantilla ORDER BY rojas DESC");
+              
+                  var myChart = new Chart(width:200, height:200)
+                    
+                        .AddTitle ("Rojas")
+                        .AddSeries(chartType:"Column",
+                        xValue:peticion3, xField :"nombre",
+                        yValues:peticion3, yFields :"rojas"
+
+                        )
+
+                        .Write();
+                       
+}

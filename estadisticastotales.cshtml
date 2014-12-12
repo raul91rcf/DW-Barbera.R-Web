@@ -1,0 +1,57 @@
+﻿@{
+    var titulo="PÁGINA";
+
+    var connexion = Database.Open("jugadores");
+    
+    var peticion = connexion.Query("SELECT nombre, partidosjugados, titular, minutos, amarillas, rojas, goles, asistencias FROM plantilla");
+    
+}
+<!DOCTYPE html>
+
+<html lang="es">
+    <head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <meta charset="utf-8" />
+        <title>@titulo</title>
+        <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+        <link rel="stylesheet" href="estilos.css">
+    </head>
+    <body>
+         <div id="contenedor">
+              @RenderPage("includes/Cabecera.cshtml")
+            <section>
+                <div id="jugadorestotales">
+                     <table id="jugadores" style="width: 100%">
+                         <caption>ESTADISTICAS TOTALES</caption>
+                         <tr>
+                        <td id="tdtitulo">Nombre</td>
+                        <td id="tdtitulo">Partidos jugados</td>
+                        <td id="tdtitulo">Titular</td>
+                        <td id="tdtitulo">Minutos</td>
+                        <td id="tdtitulo">Amarillas</td>
+                        <td id="tdtitulo">Rojas</td>
+                        <td id="tdtitulo">Asistencias</td>
+                        <td id="tdtitulo">Goles</td>
+                        </tr>
+                    @foreach (var fila in peticion)
+                    {
+                        
+                        <tr>
+                        <td id="tdnormal"><h4>@fila.nombre</h4></td>
+                        <td id="tdnormal"><h4>@fila.partidosjugados</h4></td>
+                        <td id="tdnormal"><h4>@fila.titular</h4></td>
+                        <td id="tdnormal"><h4>@fila.minutos</h4></td>
+                        <td id="tdnormal"><h4>@fila.amarillas</h4></td>
+                        <td id="tdnormal"><h4>@fila.rojas</h4></td>
+                        <td id="tdnormal"><h4>@fila.asistencias</h4></td>
+                        <td id="tdnormal"><h4>@fila.goles</h4></td>
+                        </tr>
+                    }
+                    </table>
+                </div>
+            </section>
+              @RenderPage("includes/PiePagina.cshtml")
+        </div>
+    </body>
+</html>
+

@@ -1,0 +1,65 @@
+﻿@{
+    var titulo="Algemesí CF";
+
+  
+}
+<!DOCTYPE html>
+
+<html lang="es">
+    <head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <meta charset="utf-8" />
+        <title>@titulo</title>
+        <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+        <link rel="stylesheet" href="estilos.css">
+    </head>
+    <body>
+         <div id="contenedor">
+              @RenderPage("includes/Cabecera.cshtml")
+            <section>
+              <div id="enlaces"> 
+                <table id="tablacriterio">
+                    <tr>
+                        <td id="tdtitulocriterio">CRITERIO</td>
+                        <td  id="tdtitulocriterio">ENLACE</td>
+                    </tr>
+                    <tr>
+                        <td id="tdnormalcriterio">Partidos jugados</td>
+                        <td id="tdnormalcriterio"><a href="jugadoresjugados">Consultar</a></td>
+                    </tr>
+                    <tr>
+                        <td id="tdnormalcriterio">Titular</td>
+                        <td id="tdnormalcriterio"><a href="jugadorestitular">Consultar</a></td>
+                    </tr>
+                     <tr>
+                        <td id="tdnormalcriterio">Minutos</td>
+                        <td id="tdnormalcriterio"><a href="jugadoresminutos">Consultar</a></td>
+                     </tr>
+                     <tr>
+                        <td id="tdnormalcriterio">Amarillas</td>
+                        <td id="tdnormalcriterio"><a href="jugadoresamarillas">Consultar</a></td>
+                     </tr>
+                     <tr>
+                        <td id="tdnormalcriterio">Rojas</td>
+                        <td id="tdnormalcriterio"><a href="jugadoresrojas">Consultar</a></td>
+                    </tr>
+                     <tr>
+                        <td id="tdnormalcriterio">Goles</td>
+                        <td id="tdnormalcriterio"><a href="jugadoresgoles">Consultar</a></td>
+                        
+                    </tr>
+                     <tr>
+                        <td id="tdnormalcriterio">Asistencias</td>
+                        <td id="tdnormalcriterio"><a href="jugadoresasis">Consultar</a></td>
+                     </tr>
+               </table>
+
+                </div> 
+
+                <div id="parrafocriterio"><p>Debajo de cada clasificación encontrarás un gráfico con los TOP 5</p></div>
+           </section>
+         </div>
+              @RenderPage("includes/PiePagina.cshtml")
+        </div>
+    </body>
+</html>

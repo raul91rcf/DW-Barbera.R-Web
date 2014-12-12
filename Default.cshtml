@@ -1,5 +1,8 @@
 ﻿@{
-    
+    var imagePath= "";
+    if( Request["photoChoice"] != null){
+        imagePath = @"ima/" + Request["photoChoice"];
+   }
 }
 
 <!DOCTYPE html>
@@ -8,10 +11,43 @@
     <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
         <meta charset="utf-8" />
-        <title>Título de mi sitio</title>
+        <title></title>
         <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+        <link rel="stylesheet" href="estilos.css">
     </head>
     <body>
-        
+         <div id="contenedor">
+             @RenderPage("includes/Cabecera.cshtml")
+             <section>
+                 <div id="titulofotos"><h4>Ya puedes ver las fotos de los nuevos jugadores, seleccionando la imagen, y el video de fin de fiesta de la pasada temporada</h4></div>
+                <form method="post" action="">
+                <div id="fotos">
+                     <select name="photoChoice">
+                        <option value="DaniSoler.jpg">Presentación de Dani</option>
+                        <option value="Aurelio.jpg">Presentación de Aurelio</option>
+                        <option value="BorjaBaldovi.jpg">Presentación de Borja</option>
+                        <option value="Ferran.jpg">Presentación de Ferran</option>
+                        <option value="Tall.jpg">Presentación de Mamadou</option>
+                        
+                    </select>
+                    &nbsp;
+                    <input type="submit" value="Ver" />
+                </div>
+            <div style="padding:10px;margin-left: 220px;">
+             @if(imagePath != ""){
+            <img src="@imagePath" alt="Fotos" width="300px" />
+        }
+    </div>
+</form>
+                 <div id="video">
+                <iframe width="560" 
+                height="315" 
+                src="http://www.youtube.com/embed/2ftO-DE8-k0?list=UU3UP-1vsyVWznup42jsBmlg" 
+                >
+                </iframe>
+                </div>
+            </section>
+             @RenderPage("includes/PiePagina.cshtml")
+         </div>
     </body>
 </html>

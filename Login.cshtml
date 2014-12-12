@@ -1,0 +1,83 @@
+﻿@{
+    var username = "";
+    var password = "";
+    
+    Validation.RequireField("username","El campo Usuario no puede estar en blanco");
+    Validation.RequireField("password","El campo password no puede estar en blanco");
+   
+    if(IsPost){
+        username=Request["username"];
+        password=Request["password"];
+
+          var rememberMe = Request ["rememberMe"].AsBool();
+
+        if(Validation.IsValid())
+        {
+            if(WebSecurity.Login(username,password,rememberMe))
+            {   
+                if(Request.QueryString["sender"]!=null)
+                {
+                    Response.Redirect("~/admin/panelcontrol"); 
+                    //Response.Redirect(Request.QueryString["sender"]);
+                }
+                else
+                {
+                    Response.Redirect("~/admin/panelcontrol"); 
+                    //Response.Redirect("~/default");  
+                }
+            }   
+            else
+            {
+                Validation.AddFormError("No es posible iniciar sesion");
+            }
+        }
+   }
+
+}
+<!DOCTYPE html>
+
+<html lang="es">
+    <head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <meta charset="utf-8" />
+        <title></title>
+        <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+        <link rel="stylesheet" href="estilos.css">
+    </head>
+    <body>
+         <div id="contenedor">
+              @RenderPage("includes/Cabecera.cshtml")
+            <section>
+             
+                 @Html.ValidationSummary()
+        <div id="formulogin">
+            <div id="textologin"><h4>Zona reservada para el acceso del administrador</h4></div>  
+        <form action="login?@Request.QueryString" method="post">
+
+             <div>
+                @Html.Label("Usuario:","username")<br/>
+                @Html.TextBox("username",username)
+                @Html.ValidationMessage("username") 
+           </div>
+
+            <div>
+                @Html.Label("Contraseña:","password1")<br/>
+                @Html.Password("password",password)
+                @Html.ValidationMessage("password") 
+            </div>
+            <div>
+                @Html.CheckBox("rememberMe",new{Value="true"})
+                @Html.Label("Recordarme en este equipo","rememberMe")
+           </div>
+
+            <div>
+            <input type="submit" value="Iniciar sesion"/>
+            </div>
+
+            </form>
+        </div>
+        </section>
+              
+        </div>
+    </body>
+</html>

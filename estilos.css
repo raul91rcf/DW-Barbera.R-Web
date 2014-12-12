@@ -1,0 +1,424 @@
+body {
+    background-color: white;
+    font-family: Arial;
+}
+
+#contenedor
+{
+   width: 800px;
+   background-color:grey;
+   padding: 30px;
+   margin: auto;  
+   box-shadow: 0px 15px 25px black;
+   min-height: 600px;
+}
+
+h1,h2
+{
+   margin:0px;
+   padding:0px; 
+   
+}
+
+footer {
+    font-size: 10px;
+    font-weight: bold;
+    text-align: center;
+}
+
+nav ul
+{
+   width: 107%;
+   list-style-type: none;
+   padding: 0px;
+  
+}
+
+nav ul li 
+{
+    padding: 1px;
+    float: left;
+    background: #2F548D;
+    margin: 1px;
+    width: 156px;
+    text-align: center;
+    margin-top: 2px;
+    margin-left: 3px;
+}
+
+nav ul li a
+{
+   text-decoration: none; 
+   color: white;
+   font-weight:bold;
+   
+}
+#menuestadisticas a
+{
+  text-decoration: none;
+  font-size: 10px;
+  padding: 5px;  
+  background: #0040FF;  
+  margin-top: 10px;
+}
+
+#cabecera
+{
+   background: #2F548D; 
+   color: white;
+   width: 860px;
+   margin-left: -30px;
+   height: 90px;
+   margin-top:-30px;
+    border:1px solid black; 
+}
+
+#titulo
+{
+   padding-top: 60px;
+    
+}
+
+#textosubcabecera
+{
+  margin-left: 273px;
+  margin-top: -215px;  
+  color: white;
+  font-weight:bold; 
+  font-size: 40px;
+}
+
+#subcabecera
+{
+  background: #2F548D;
+  border:1px solid black;  
+  width: 858px;
+  height: 204px;
+  margin-left: -30px;  
+    
+}
+
+#escudo
+{
+  padding-top: 21px;
+  margin-left: 40px;  
+    
+}
+
+#menu
+{
+  background: #2F548D;   
+}
+
+#jugadores
+{
+    margin-left: 4px;
+    border-collapse:collapse; 
+    text-align: center;
+    padding-top: 60px;
+}
+
+caption
+{
+    border:1px solid white;
+    font-weight:bold;
+    border-collapse:collapse;
+    text-align:center;
+    background-color:white;
+    color:#08088A  ;
+       
+  
+}
+
+#tdtitulo
+{
+   color:#08088A ;
+   border:1px solid white;
+   font-weight:bold;
+   width: 132px; 
+    
+}
+
+#tdnormal
+{
+   color:black;
+   border:1px solid white;
+   font-weight:bold;
+   text-align: center;
+   border-spacing:0;     
+}
+
+#jugadorestotales
+{
+    margin-left: 4px;
+    border-collapse:collapse; 
+    text-align: center;
+    padding-top: 76px;
+}
+
+#enlaces
+{
+   padding-top: 72px;
+   margin-left: 218px; 
+    
+}
+
+#tablacriterio
+{
+  text-align: center;  
+    
+}
+#tdtitulocriterio
+{
+   color:#08088A ;
+   border:1px solid white;
+   font-weight:bold;
+   width: 132px; 
+    
+}
+
+#tdnormalcriterio
+{
+   color:black;
+   border:1px solid white;
+   font-weight:bold;
+   text-align: center;
+   border-spacing:0;     
+}
+
+#divcriterio1
+{
+   padding-top: 81px; 
+   margin-left: 67px;
+    
+}
+
+#divcriterio2
+{
+   margin-top: -792px; 
+   margin-left:354px;
+    
+}
+
+#divcriterio3
+{
+   margin-top: 96px; 
+   margin-left:70px;
+    
+}
+
+#divcriterio4
+{
+   margin-top: -791px; 
+   margin-left:357px;
+    
+}
+
+#divcriterio5
+{
+   margin-top: 108px; 
+   margin-left:100px;
+    
+}
+
+#divcriterio6
+{
+   margin-top: -791px; 
+   margin-left:375px;
+    
+}
+
+#divcriterio7
+{
+   margin-top: 115px; 
+   margin-left:104px;
+    
+}
+
+#divcriterio8
+{
+   margin-top: -810px; 
+   margin-left:386px;
+    
+}
+
+#divcriterio9
+{
+   margin-top: 124px; 
+   margin-left:105px;
+    
+}
+
+#divcriterio10
+{
+   margin-top: -791px; 
+   margin-left:396px;
+    
+}
+
+#divcriterio11
+{
+   margin-top: 131px; 
+   margin-left:90px;
+    
+}
+
+#divcriterio12
+{
+   margin-top: -792px; 
+   margin-left:375px;
+    
+}
+
+#divcriterio13
+{
+   margin-top: 119px; 
+   margin-left:63px;
+    
+}
+
+#divcriterio14
+{
+   margin-top: -791px; 
+   margin-left:358px;
+    
+}
+
+#graficoamarillas
+{
+    margin-top: 51px;
+    margin-left: 252px;
+    
+}
+
+#graficoasis
+{
+    margin-top: 35px;
+    margin-left: 252px;
+    
+}
+
+#graficogoles
+{
+    margin-top: 35px;
+    margin-left: 273px;
+    
+}
+
+#graficojugados
+{
+    margin-top: 35px;
+    margin-left: 283px;
+    
+}
+
+#graficominutos
+{
+    margin-top: 35px;
+    margin-left: 289px;
+    
+}
+
+#graficorojas
+{
+    margin-top: 35px;
+    margin-left: 277px;
+    
+}
+
+#graficotitular
+{
+    margin-top: 35px;
+    margin-left: 252px;
+    
+}
+
+#tablaglobal
+{
+    margin-left: 4px;
+    border-collapse:collapse; 
+    text-align: center;
+    padding-top: 76px;
+    
+    
+}
+
+#tdglobaltitulo
+{
+    color:#08088A ;
+   border:1px solid white;
+   font-weight:bold;
+   width: 132px; 
+    
+    
+}
+
+#tdglobalnormal
+{
+  color:black;
+  border:1px solid white;
+  font-weight:bold;
+  text-align: center;
+  border-spacing:0;     
+}
+
+#fotos
+{
+  margin-top: 30px;
+  margin-left: 279px;  
+    
+}
+
+#titulofotos
+{
+   margin-top: 80px; 
+    margin-left: 53px;
+}
+
+#formulogin
+{
+  margin-top: 130px;
+  margin-left: 289px;  
+}
+
+#textologin
+{
+ margin-left: -70px;
+ margin-top: -32px;   
+    
+}
+
+#video
+{
+   margin-top: 30px; 
+   margin-left: 96px;
+    
+}
+
+#twitter
+{
+    margin-top: -42px;
+    margin-left: 627px;
+    
+}
+
+#facebook
+{
+   margin-top: -61px;
+   margin-left:626px; 
+    
+}
+
+#fecha
+{
+    margin-top: -5px;
+    margin-left: 16px;
+    
+}
+
+#parrafocriterio
+{
+  font-weight: bold;
+  margin-left: 150px;  
+    
+}

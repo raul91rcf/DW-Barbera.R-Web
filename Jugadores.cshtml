@@ -1,0 +1,108 @@
+﻿@{
+    var titulo="PÁGINA";
+
+    var connexion = Database.Open("jugadores");
+    
+    var peticion = connexion.Query("SELECT * FROM plantilla WHERE posicion='portero' ");
+    var peticion2 = connexion.Query("SELECT * FROM plantilla WHERE posicion='defensa' ");
+    var peticion3 = connexion.Query("SELECT * FROM plantilla WHERE posicion='centrocampista' ");
+    var peticion4 = connexion.Query("SELECT * FROM plantilla WHERE posicion='delantero' ");
+}
+<!DOCTYPE html>
+
+<html lang="es">
+    <head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <meta charset="utf-8" />
+        <title>@titulo</title>
+        <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+        <link rel="stylesheet" href="estilos.css">
+    </head>
+    <body>
+         <div id="contenedor">
+              @RenderPage("includes/Cabecera.cshtml")
+            <section>
+                 <div id="jugadores">
+                     <table id="jugadores" style="width: 100%">
+                         <caption>PORTEROS</caption>
+                         <tr>
+                        <td id="tdtitulo">Nombre</td>
+                        <td id="tdtitulo">Apellidos</td>
+                        <td id="tdtitulo">Dorsal</td>
+                        <td id="tdtitulo">Posicion</td>
+                        </tr>
+                    @foreach (var fila in peticion)
+                    {
+                        
+                        <tr>
+                        <td id="tdnormal"><h4>@fila.nombre</h4></td>
+                        <td id="tdnormal"><h4>@fila.apellidos</h4></td>
+                        <td id="tdnormal"><h4>@fila.dorsal</h4></td>
+                        <td id="tdnormal"><h4>@fila.posicion</h4></td>
+                        </tr>
+                    }
+                    </table>
+
+                      <table id="jugadores" style="width: 100%">
+                         <caption>DEFENSAS</caption>
+                         <tr>
+                        <td id="tdtitulo">Nombre</td>
+                        <td id="tdtitulo">Apellidos</td>
+                        <td id="tdtitulo">Dorsal</td>
+                        <td id="tdtitulo">Posicion</td>
+                        </tr>
+                    @foreach (var fila in peticion2)
+                    {
+                        
+                        <tr>
+                        <td id="tdnormal"><h4>@fila.nombre</h4></td>
+                        <td id="tdnormal"><h4>@fila.apellidos</h4></td>
+                        <td id="tdnormal"><h4>@fila.dorsal</h4></td>
+                        <td id="tdnormal"><h4>@fila.posicion</h4></td>
+                        </tr>
+                    }
+                    </table>
+
+                      <table id="jugadores" style="width: 100%">
+                         <caption>CENTROCAMPISTAS</caption>
+                        <tr>
+                        <td id="tdtitulo">Nombre</td>
+                        <td id="tdtitulo">Apellidos</td>
+                        <td id="tdtitulo">Dorsal</td>
+                        <td id="tdtitulo">Posicion</td>
+                        </tr>
+                    @foreach (var fila in peticion3)
+                    {
+                        <tr>
+                        <td id="tdnormal"><h4>@fila.nombre</h4></td>
+                        <td id="tdnormal"><h4>@fila.apellidos</h4></td>
+                        <td id="tdnormal"><h4>@fila.dorsal</h4></td>
+                        <td id="tdnormal"><h4>@fila.posicion</h4></td>
+                        </tr>
+                    }
+                    </table>
+
+                     <table id="jugadores" style="width: 100%">
+                         <caption>DELANTEROS</caption>
+                        <tr>
+                        <td id="tdtitulo">Nombre</td>
+                        <td id="tdtitulo">Apellidos</td>
+                        <td id="tdtitulo">Dorsal</td>
+                        <td id="tdtitulo">Posicion</td>
+                        </tr>
+                    @foreach (var fila in peticion4)
+                    {
+                        <tr>
+                        <td id="tdnormal"><h4>@fila.nombre</h4></td>
+                        <td id="tdnormal"><h4>@fila.apellidos</h4></td>
+                        <td id="tdnormal"><h4>@fila.dorsal</h4></td>
+                        <td id="tdnormal"><h4>@fila.posicion</h4></td>
+                        </tr>
+                    }
+                    </table>
+                 </div>
+            </section>
+              @RenderPage("includes/PiePagina.cshtml")
+        </div>
+    </body>
+</html>

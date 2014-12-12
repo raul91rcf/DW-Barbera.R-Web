@@ -1,0 +1,65 @@
+﻿@{
+    var titulo="PÁGINA";
+
+    var connexion = Database.Open("jugadores");
+    
+    var peticion = connexion.Query("SELECT nombre,amarillas FROM plantilla ORDER BY amarillas ASC ");
+    var peticion2 = connexion.Query("SELECT nombre,amarillas FROM plantilla ORDER BY amarillas DESC ");
+    var peticion3 = connexion.Query("SELECT TOP 5 nombre,amarillas FROM plantilla ");
+}
+<!DOCTYPE html>
+
+<html lang="es">
+    <head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <meta charset="utf-8" />
+        <title>@titulo</title>
+        <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+        <link rel="stylesheet" href="estilos.css">
+    </head>
+    <body>
+         <div id="contenedor">
+             @RenderPage("includes/Cabecera.cshtml")
+            <section>
+                <div id="divcriterio1">
+                     <table id="tablaglobal">
+                        <tr>
+                            <td id="tdglobaltitulo">Nombre</td>
+                            <td id="tdglobaltitulo">Amarillas (ASC)</td>
+                        </tr>
+                    @foreach (var fila in peticion)
+                    {
+                        <tr>
+                        <td id="tdglobalnormal"><h3>@fila.nombre</h3></td>
+                        <td id="tdglobalnormal"><h3>@fila.amarillas</h3></td>
+                        </tr>
+                    }
+                    </table>
+                 </div>
+                <div id="divcriterio2">
+                     <table id="tablaglobal">
+                        <tr>
+                            <td id="tdglobaltitulo">Nombre</td>
+                            <td id="tdglobaltitulo">Amarillas (DES)</td>
+                        </tr>
+                    @foreach (var fila in peticion2)
+                    {
+                        <tr>
+                        <td id="tdglobalnormal"><h3>@fila.nombre</h3></td>
+                        <td id="tdglobalnormal"><h3>@fila.amarillas</h3></td>
+                        </tr>
+                    }
+                    </table>
+                     
+                 </div>
+
+                <div id="graficoamarillas">
+                    <img src="graficoamarillas" alt="graficoamarillas"></img>
+                </div>
+           
+            
+            </section>
+              
+        </div>
+    </body>
+</html>

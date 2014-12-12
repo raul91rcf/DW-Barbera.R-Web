@@ -1,0 +1,33 @@
+﻿@{
+     var connexion = Database.Open("jugadores");
+    
+     var peticion = connexion.Query("SELECT * FROM plantilla ORDER BY id");
+
+     var grid = new WebGrid (peticion);
+}
+
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title></title>
+         <link rel="stylesheet" href="admin.css">
+    </head>
+    <body>
+        <div id="contenedor">
+            <div id="menu">
+                <ul>
+                     <li><a href="insertarjugador">Insertar un nuevo jugador</a></li>
+                     <li><a href="actualizardatos">Actualizar datos</a></li>
+                     <li><a href="eliminarjugador">Eliminar jugador</a></li>
+                </ul>
+            </div>
+            <div id="contenido">
+                <h3>Listado total de jugadores</h3>
+                @grid.GetHtml()
+                @MembershipHelpers.AccountSummary()
+            </div>
+        </div>
+    </body>
+</html>
